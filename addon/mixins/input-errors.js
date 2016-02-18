@@ -18,5 +18,8 @@ export default Ember.Mixin.create({
     this.eachRelationship((key) => {
       this.set(`visibleErrors.${key}`, visible);
     });
+    Object.keys(this.get('dependentValidationKeys')).forEach((key) => {
+      this.set(`visibleErrors.${key}`, visible);
+    })
   }
 });
